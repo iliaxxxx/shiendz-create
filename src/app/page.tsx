@@ -24,8 +24,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen" style={{ paddingTop: "var(--tg-content-safe-area-inset-top, 0px)" }}>
-      {/* Header */}
-      <div className="px-5 pt-4 pb-1">
+      {/* Header — offset below Telegram close button */}
+      <div className="px-5 pt-14 pb-1">
         <h1 className="text-[42px] font-serif font-black text-tg-text leading-none tracking-tight">
           Templates
         </h1>
