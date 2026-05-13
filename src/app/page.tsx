@@ -27,10 +27,10 @@ export default function Home() {
       {/* Header — offset below Telegram close button */}
       <div className="px-5 pt-14 pb-1">
         <h1 className="text-[42px] font-serif font-black text-tg-text leading-none tracking-tight">
-          Templates
+          Шаблоны
         </h1>
         <p className="text-xs tracking-[0.15em] text-tg-hint mt-2 uppercase">
-          Tap on a template below to get started
+          Выбери шаблон и загрузи фото
         </p>
       </div>
 

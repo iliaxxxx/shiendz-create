@@ -39,7 +39,7 @@ export default function CreatePage({
   if (!template) {
     return (
       <div className="flex-1 flex items-center justify-center text-tg-hint min-h-screen">
-        Template not found
+        Шаблон не найден
       </div>
     );
   }
@@ -48,7 +48,7 @@ export default function CreatePage({
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 10 * 1024 * 1024) {
-      setError("File too large (max 10 MB)");
+      setError("Файл слишком большой (макс. 10 МБ)");
       return;
     }
     setPhotoFile(file);
@@ -73,14 +73,14 @@ export default function CreatePage({
       const res = await fetch("/api/generate", { method: "POST", body: formData });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Generation failed");
+        throw new Error(data.error || "Ошибка генерации");
       }
       const data = await res.json();
       setResult(data.imageUrl);
       setStatus("done");
       haptic?.notificationOccurred("success");
     } catch (err: any) {
-      setError(err.message || "Something went wrong");
+      setError(err.message || "Что-то пошло не так");
       setStatus("error");
       haptic?.notificationOccurred("error");
     }
@@ -110,7 +110,7 @@ export default function CreatePage({
           {template.name}
         </h1>
         <p className="text-xs tracking-[0.12em] text-tg-hint mt-1.5 uppercase">
-          Upload your photo to apply this template
+          Загрузи фото для этого шаблона
         </p>
       </div>
 
@@ -126,13 +126,13 @@ export default function CreatePage({
                 onClick={handleDownload}
                 className="flex-1 py-3.5 rounded-full bg-tg-button text-tg-button-text font-bold text-sm tracking-wide active:scale-[0.97] transition-transform"
               >
-                SAVE
+                СОХРАНИТЬ
               </button>
               <button
                 onClick={handleReset}
                 className="flex-1 py-3.5 rounded-full bg-card text-tg-text font-bold text-sm tracking-wide active:scale-[0.97] transition-transform"
               >
-                TRY AGAIN
+                ЕЩЁ РАЗ
               </button>
             </div>
           </div>
@@ -161,10 +161,10 @@ export default function CreatePage({
                 </div>
                 <div className="text-center">
                   <p className="text-sm font-semibold text-tg-text">
-                    Choose a photo
+                    Выбрать фото
                   </p>
                   <p className="text-xs text-tg-hint mt-1">
-                    JPG, PNG up to 10 MB
+                    JPG, PNG до 10 МБ
                   </p>
                 </div>
               </button>
@@ -176,7 +176,7 @@ export default function CreatePage({
                     <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-4">
                       <div className="w-14 h-14 border-[3px] border-white/20 border-t-white rounded-full animate-spin" />
                       <p className="text-white text-sm font-medium tracking-wide">
-                        Creating magic...
+                        Создаём магию...
                       </p>
                     </div>
                   )}
@@ -203,7 +203,7 @@ export default function CreatePage({
                 onClick={handleGenerate}
                 className="w-full py-4 rounded-full bg-tg-button text-tg-button-text font-bold text-sm tracking-widest uppercase active:scale-[0.97] transition-transform shadow-lg"
               >
-                CREATE
+                СОЗДАТЬ
               </button>
             )}
           </>

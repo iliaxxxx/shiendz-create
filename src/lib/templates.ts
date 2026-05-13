@@ -12,21 +12,21 @@ export interface Template {
 }
 
 export const categories = [
-  { id: "trending", name: "TRENDING" },
-  { id: "vintage", name: "VINTAGE" },
-  { id: "love", name: "LOVE LETTERS" },
-  { id: "film", name: "FILM" },
-  { id: "art", name: "ART" },
-  { id: "pop", name: "POP" },
-  { id: "minimal", name: "MINIMAL" },
-  { id: "meme", name: "MEMES" },
+  { id: "trending", name: "В ТРЕНДЕ" },
+  { id: "vintage", name: "ВИНТАЖ" },
+  { id: "love", name: "ЛЮБОВЬ" },
+  { id: "film", name: "ПЛЁНКА" },
+  { id: "art", name: "АРТ" },
+  { id: "pop", name: "ПОП" },
+  { id: "minimal", name: "МИНИМАЛ" },
+  { id: "meme", name: "МЕМЫ" },
 ];
 
 export const templates: Template[] = [
   // TRENDING
   {
     id: "heart-lace",
-    name: "Heart Lace",
+    name: "Кружевное сердце",
     category: "trending",
     previewBg: "#a83232",
     previewStyle: "heart",
@@ -36,7 +36,7 @@ export const templates: Template[] = [
   },
   {
     id: "polaroid-ribbon",
-    name: "Polaroid Gift",
+    name: "Полароид",
     category: "trending",
     previewBg: "#f5f0e8",
     previewStyle: "polaroid",
@@ -45,7 +45,7 @@ export const templates: Template[] = [
   },
   {
     id: "love-stamp",
-    name: "For You",
+    name: "Для тебя",
     category: "trending",
     previewBg: "#d4a882",
     previewStyle: "stamp",
@@ -54,7 +54,7 @@ export const templates: Template[] = [
   },
   {
     id: "love-text-wall",
-    name: "Love You",
+    name: "Люблю тебя",
     category: "trending",
     previewBg: "#f5ede0",
     previewStyle: "grid-text",
@@ -66,7 +66,7 @@ export const templates: Template[] = [
   // VINTAGE
   {
     id: "film-strip",
-    name: "Film Strip",
+    name: "Киноплёнка",
     category: "vintage",
     previewBg: "#2a2a2a",
     previewStyle: "film",
@@ -74,7 +74,7 @@ export const templates: Template[] = [
   },
   {
     id: "retro-tv",
-    name: "Retro TV",
+    name: "Ретро ТВ",
     category: "vintage",
     previewBg: "#c4a67a",
     previewStyle: "circle",
@@ -82,7 +82,7 @@ export const templates: Template[] = [
   },
   {
     id: "old-newspaper",
-    name: "Newspaper",
+    name: "Газета",
     category: "vintage",
     previewBg: "#e8dcc0",
     previewStyle: "torn",
@@ -102,7 +102,7 @@ export const templates: Template[] = [
   // LOVE LETTERS
   {
     id: "wax-seal",
-    name: "Wax Seal",
+    name: "Сургуч",
     category: "love",
     previewBg: "#8b2020",
     previewStyle: "circle",
@@ -112,7 +112,7 @@ export const templates: Template[] = [
   },
   {
     id: "love-envelope",
-    name: "Envelope",
+    name: "Конверт",
     category: "love",
     previewBg: "#f5ede0",
     previewStyle: "stamp",
@@ -120,7 +120,7 @@ export const templates: Template[] = [
   },
   {
     id: "rose-frame",
-    name: "Roses",
+    name: "Розы",
     category: "love",
     previewBg: "#3a1a1a",
     previewStyle: "collage",
@@ -129,7 +129,7 @@ export const templates: Template[] = [
   },
   {
     id: "handwritten",
-    name: "Dear...",
+    name: "Дорогой...",
     category: "love",
     previewBg: "#f0e6d6",
     previewStyle: "torn",
@@ -156,7 +156,7 @@ export const templates: Template[] = [
   },
   {
     id: "disposable",
-    name: "Disposable",
+    name: "Мыльница",
     category: "film",
     previewBg: "#2a3a2a",
     previewStyle: "tape",
@@ -176,7 +176,7 @@ export const templates: Template[] = [
   // ART
   {
     id: "oil-portrait",
-    name: "Oil Portrait",
+    name: "Масло",
     category: "art",
     previewBg: "#3a2a1a",
     previewStyle: "circle",
@@ -185,7 +185,7 @@ export const templates: Template[] = [
   },
   {
     id: "watercolor",
-    name: "Watercolor",
+    name: "Акварель",
     category: "art",
     previewBg: "#e8dcc8",
     previewStyle: "torn",
@@ -193,7 +193,7 @@ export const templates: Template[] = [
   },
   {
     id: "anime",
-    name: "Anime",
+    name: "Аниме",
     category: "art",
     previewBg: "#c4a0d4",
     previewStyle: "polaroid",
@@ -201,7 +201,7 @@ export const templates: Template[] = [
   },
   {
     id: "comic-panel",
-    name: "Comic Book",
+    name: "Комикс",
     category: "art",
     previewBg: "#d4c43c",
     previewStyle: "tape",
@@ -212,7 +212,7 @@ export const templates: Template[] = [
   // POP
   {
     id: "pop-art",
-    name: "Pop Art",
+    name: "Поп-арт",
     category: "pop",
     previewBg: "#e83030",
     previewStyle: "grid-text",
@@ -221,7 +221,7 @@ export const templates: Template[] = [
   },
   {
     id: "neon-glow",
-    name: "Neon",
+    name: "Неон",
     category: "pop",
     previewBg: "#0a0a2a",
     previewStyle: "circle",
@@ -231,7 +231,7 @@ export const templates: Template[] = [
   },
   {
     id: "glitch",
-    name: "Glitch",
+    name: "Глитч",
     category: "pop",
     previewBg: "#1a1a1a",
     previewStyle: "tape",
@@ -239,7 +239,7 @@ export const templates: Template[] = [
   },
   {
     id: "sticker-pack",
-    name: "Sticker",
+    name: "Стикер",
     category: "pop",
     previewBg: "#f5f0e8",
     previewStyle: "collage",
@@ -249,7 +249,7 @@ export const templates: Template[] = [
   // MINIMAL
   {
     id: "line-art",
-    name: "Line Art",
+    name: "Лайн-арт",
     category: "minimal",
     previewBg: "#f5f0e8",
     previewStyle: "circle",
@@ -257,7 +257,7 @@ export const templates: Template[] = [
   },
   {
     id: "duotone",
-    name: "Duotone",
+    name: "Дуотон",
     category: "minimal",
     previewBg: "#1a3a5a",
     previewStyle: "magazine",
@@ -266,7 +266,7 @@ export const templates: Template[] = [
   },
   {
     id: "silhouette",
-    name: "Silhouette",
+    name: "Силуэт",
     category: "minimal",
     previewBg: "#f0a060",
     previewStyle: "polaroid",
@@ -276,7 +276,7 @@ export const templates: Template[] = [
   // MEMES
   {
     id: "action-figure",
-    name: "Action Figure",
+    name: "Фигурка",
     category: "meme",
     previewBg: "#2a4a8a",
     previewStyle: "polaroid",
@@ -285,7 +285,7 @@ export const templates: Template[] = [
   },
   {
     id: "wanted",
-    name: "Wanted",
+    name: "Розыск",
     category: "meme",
     previewBg: "#d4a870",
     previewStyle: "torn",
@@ -293,7 +293,7 @@ export const templates: Template[] = [
   },
   {
     id: "trading-card",
-    name: "Trading Card",
+    name: "Карточка",
     category: "meme",
     previewBg: "#d4a843",
     previewStyle: "magazine",
@@ -302,7 +302,7 @@ export const templates: Template[] = [
   },
   {
     id: "renaissance",
-    name: "Renaissance",
+    name: "Ренессанс",
     category: "meme",
     previewBg: "#3a2a1a",
     previewStyle: "heart",
