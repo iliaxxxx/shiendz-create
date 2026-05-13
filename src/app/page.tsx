@@ -7,18 +7,23 @@ import { TemplatePreview } from "@/components/TemplatePreview";
 import Link from "next/link";
 
 export default function Home() {
-  const { ready, expand, haptic } = useTelegram();
+  const { tg, ready, expand, haptic, requestFullscreen } = useTelegram();
   const [activeCategory, setActiveCategory] = useState("trending");
 
   useEffect(() => {
     ready();
     expand();
+    // Request fullscreen after a small delay (needs user gesture on some clients)
+    const timer = setTimeout(() => {
+      try { requestFullscreen(); } catch {}
+    }, 300);
+    return () => clearTimeout(timer);
   }, []);
 
   const currentTemplates = getTemplatesByCategory(activeCategory);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen" style={{ paddingTop: "var(--tg-content-safe-area-inset-top, 0px)" }}>
       {/* Header */}
       <div className="px-5 pt-4 pb-1">
         <h1 className="text-[42px] font-serif font-black text-tg-text leading-none tracking-tight">
@@ -64,7 +69,7 @@ export default function Home() {
       </div>
 
       {/* Bottom tab bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-tg-bg/90 backdrop-blur-xl border-t border-tg-hint/10 px-6 pb-[env(safe-area-inset-bottom,8px)] pt-2">
+      <div className="fixed bottom-0 left-0 right-0 bg-tg-bg/90 backdrop-blur-xl border-t border-tg-hint/10 px-6 pt-2" style={{ paddingBottom: "max(env(safe-area-inset-bottom, 8px), var(--tg-safe-area-inset-bottom, 8px))" }}>
         <div className="flex justify-around items-center">
           <TabIcon active>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
