@@ -1,222 +1,313 @@
 export interface Template {
   id: string;
   name: string;
-  description: string;
   category: string;
-  emoji: string;
   prompt: string;
-  example?: string;
+  premium?: boolean;
+  // Visual preview config
+  previewBg: string;
+  previewStyle: "heart" | "polaroid" | "stamp" | "tape" | "grid-text" | "film" | "magazine" | "circle" | "torn" | "collage";
+  previewAccent?: string;
+  aspectTall?: boolean;
 }
 
 export const categories = [
-  { id: "avatar", name: "Аватарки", emoji: "🎭" },
-  { id: "sticker", name: "Стикеры", emoji: "✨" },
-  { id: "art", name: "Арт", emoji: "🎨" },
-  { id: "meme", name: "Мемы", emoji: "😂" },
-  { id: "photo", name: "Фотоэффекты", emoji: "📸" },
-  { id: "fashion", name: "Мода", emoji: "👗" },
+  { id: "trending", name: "TRENDING" },
+  { id: "vintage", name: "VINTAGE" },
+  { id: "love", name: "LOVE LETTERS" },
+  { id: "film", name: "FILM" },
+  { id: "art", name: "ART" },
+  { id: "pop", name: "POP" },
+  { id: "minimal", name: "MINIMAL" },
+  { id: "meme", name: "MEMES" },
 ];
 
 export const templates: Template[] = [
-  // Аватарки
+  // TRENDING
   {
-    id: "anime-avatar",
-    name: "Аниме аватар",
-    description: "Превращает фото в аниме-стиль",
-    category: "avatar",
-    emoji: "🌸",
-    prompt:
-      "Transform this photo into a high-quality anime style portrait. Keep the person's features recognizable but render in beautiful anime art style with vibrant colors, clean lines, and expressive eyes. Studio Ghibli inspired aesthetic.",
+    id: "heart-lace",
+    name: "Heart Lace",
+    category: "trending",
+    previewBg: "#a83232",
+    previewStyle: "heart",
+    previewAccent: "#fff",
+    aspectTall: true,
+    prompt: "Place this photo inside a decorative white lace heart frame on a rich red textured paper background. The heart should have intricate doily-like lace edges. Romantic vintage scrapbook aesthetic, warm tones.",
   },
   {
-    id: "pixel-avatar",
-    name: "Пиксель арт",
-    description: "8-bit пиксельная версия",
-    category: "avatar",
-    emoji: "👾",
-    prompt:
-      "Convert this photo into a charming 16-bit pixel art portrait. Use a limited but vibrant color palette. The person should be recognizable in pixel form. Retro gaming aesthetic, clean pixel edges.",
+    id: "polaroid-ribbon",
+    name: "Polaroid Gift",
+    category: "trending",
+    previewBg: "#f5f0e8",
+    previewStyle: "polaroid",
+    previewAccent: "#8b2020",
+    prompt: "Present this photo as a vintage polaroid photograph with a white border, slightly tilted, with an elegant white satin ribbon bow on top. Place on a cream/beige background. Gift-wrapped photo aesthetic, warm film tones.",
   },
   {
-    id: "cyberpunk-avatar",
-    name: "Киберпанк",
-    description: "Неоновый киберпанк портрет",
-    category: "avatar",
-    emoji: "🤖",
-    prompt:
-      "Transform this photo into a cyberpunk style portrait with neon lighting, futuristic cybernetic augmentations, glowing elements. Dark background with vivid neon pink, blue and purple accents. High contrast, cinematic look.",
+    id: "love-stamp",
+    name: "For You",
+    category: "trending",
+    previewBg: "#d4a882",
+    previewStyle: "stamp",
+    aspectTall: true,
+    prompt: "Create a vintage envelope/letter aesthetic with this photo. Black and white version of the photo, placed on aged paper with handwritten cursive text 'for you' underneath, decorative postal stamps, red wax seal. Love letter vintage aesthetic.",
   },
   {
-    id: "cartoon-avatar",
-    name: "Мультяшный",
-    description: "Мультяшный портрет в стиле Pixar",
-    category: "avatar",
-    emoji: "🎬",
-    prompt:
-      "Transform this photo into a Pixar/Disney 3D cartoon style character portrait. Exaggerated cute proportions, smooth rendering, expressive eyes, warm lighting. The person should be clearly recognizable but stylized as an animated character.",
-  },
-  {
-    id: "oil-painting",
-    name: "Масло",
-    description: "Классический портрет маслом",
-    category: "avatar",
-    emoji: "🖼️",
-    prompt:
-      "Transform this photo into a classical oil painting portrait in the style of Renaissance masters. Rich warm colors, dramatic chiaroscuro lighting, visible brushstrokes, ornate dark background. Museum-quality fine art aesthetic.",
+    id: "love-text-wall",
+    name: "Love You",
+    category: "trending",
+    previewBg: "#f5ede0",
+    previewStyle: "grid-text",
+    previewAccent: "#c4453c",
+    premium: true,
+    prompt: "Place this photo in the center of a background filled with repeated handwritten text 'love you' in red ink on cream paper. Photo should be in vintage film style. Add a red wax seal accent. Romantic letter aesthetic.",
   },
 
-  // Стикеры
+  // VINTAGE
   {
-    id: "chibi-sticker",
-    name: "Чиби стикер",
-    description: "Милый чиби-персонаж для стикерпака",
-    category: "sticker",
-    emoji: "🍡",
-    prompt:
-      "Create a cute chibi sticker character based on this person's photo. Big head, small body, kawaii expressions. White outline border around the character on a transparent-looking clean background. Sticker pack ready, vibrant flat colors.",
+    id: "film-strip",
+    name: "Film Strip",
+    category: "vintage",
+    previewBg: "#2a2a2a",
+    previewStyle: "film",
+    prompt: "Present this photo as if it's a frame from a 35mm film strip. Show sprocket holes on sides, film grain, slightly faded warm colors. Include film edge markings and frame numbers. Authentic analog photography look.",
   },
   {
-    id: "emoji-sticker",
-    name: "Эмодзи лицо",
-    description: "Твоё лицо как эмодзи",
-    category: "sticker",
-    emoji: "😊",
-    prompt:
-      "Transform this person's face into a custom emoji/emoticon style. Round circular format like a standard emoji, simplified features but recognizable as the person. Bright yellow background, bold outlines, expressive. Clean vector-like style.",
+    id: "retro-tv",
+    name: "Retro TV",
+    category: "vintage",
+    previewBg: "#c4a67a",
+    previewStyle: "circle",
+    prompt: "Place this photo inside a vintage 1970s television set screen. Rounded CRT screen, wood-grain TV cabinet, retro dials and antenna on top. Warm nostalgic tones, slight scan lines on the image.",
   },
   {
-    id: "pop-art-sticker",
-    name: "Поп-арт",
-    description: "Стикер в стиле поп-арт",
-    category: "sticker",
-    emoji: "💥",
-    prompt:
-      "Transform this photo into a bold pop art sticker in the style of Roy Lichtenstein / Andy Warhol. Ben-Day dots, strong black outlines, limited vivid color palette (red, blue, yellow). Comic book aesthetic with halftone patterns.",
+    id: "old-newspaper",
+    name: "Newspaper",
+    category: "vintage",
+    previewBg: "#e8dcc0",
+    previewStyle: "torn",
+    aspectTall: true,
+    prompt: "Transform this into a vintage newspaper clipping. Black and white halftone print style of the photo, placed in a newspaper layout with headline text, columns of text around it, aged yellowed paper texture, slightly torn edges.",
+  },
+  {
+    id: "vhs-tape",
+    name: "VHS",
+    category: "vintage",
+    previewBg: "#1a1a3a",
+    previewStyle: "tape",
+    premium: true,
+    prompt: "Apply authentic VHS tape aesthetic to this photo. Scan lines, tracking errors, chromatic aberration, date stamp in corner (showing random 90s date), slightly warped and fuzzy. Blue-tinted paused VHS look with 'PLAY' indicator.",
   },
 
-  // Арт
+  // LOVE LETTERS
+  {
+    id: "wax-seal",
+    name: "Wax Seal",
+    category: "love",
+    previewBg: "#8b2020",
+    previewStyle: "circle",
+    previewAccent: "#d4a843",
+    aspectTall: true,
+    prompt: "Create a romantic composition: this photo in a circular frame with ornate gold edges, placed on dark red velvet background. A large decorative red wax seal with a heart imprint overlapping the bottom. Love letter romantic aesthetic.",
+  },
+  {
+    id: "love-envelope",
+    name: "Envelope",
+    category: "love",
+    previewBg: "#f5ede0",
+    previewStyle: "stamp",
+    prompt: "Place this photo as if it's being pulled out of a vintage cream envelope. Handwritten address on the envelope, postal stamps, red heart sticker seal. Romantic correspondence aesthetic, warm soft lighting.",
+  },
+  {
+    id: "rose-frame",
+    name: "Roses",
+    category: "love",
+    previewBg: "#3a1a1a",
+    previewStyle: "collage",
+    premium: true,
+    prompt: "Frame this photo with an arrangement of deep red roses and green leaves. Dark moody background, the photo in the center with roses cascading around the edges. Romantic, dramatic, rich colors. Vintage Valentine aesthetic.",
+  },
+  {
+    id: "handwritten",
+    name: "Dear...",
+    category: "love",
+    previewBg: "#f0e6d6",
+    previewStyle: "torn",
+    prompt: "Present this photo on aged parchment paper with handwritten love letter text flowing around it. Cursive calligraphy, ink spots, fountain pen nearby. The photo slightly overlapping the handwritten text. Intimate letter aesthetic.",
+  },
+
+  // FILM
+  {
+    id: "kodak-gold",
+    name: "Kodak Gold",
+    category: "film",
+    previewBg: "#d4a843",
+    previewStyle: "film",
+    previewAccent: "#c4453c",
+    prompt: "Apply Kodak Gold 200 film stock look to this photo. Warm golden tones, slightly overexposed highlights, rich saturated colors, visible film grain. Include Kodak film border with frame numbers and 'KODAK GOLD 200' text on the edge.",
+  },
+  {
+    id: "fuji-400",
+    name: "Fuji 400H",
+    category: "film",
+    previewBg: "#4a6a5a",
+    previewStyle: "polaroid",
+    prompt: "Apply Fuji Pro 400H film stock aesthetic to this photo. Cool pastel tones, slightly muted greens and blues, soft highlights, fine grain. Dreamy ethereal quality. Include film rebate border with Fuji markings.",
+  },
+  {
+    id: "disposable",
+    name: "Disposable",
+    category: "film",
+    previewBg: "#2a3a2a",
+    previewStyle: "tape",
+    aspectTall: true,
+    prompt: "Make this look like it was taken on a cheap disposable camera. Flash-lit, slightly off-center framing, heavy vignetting, date stamp in orange (showing random date), green-tinted shadows, grainy. Authentic disposable camera aesthetic.",
+  },
+  {
+    id: "cinema-scope",
+    name: "CinemaScope",
+    category: "film",
+    previewBg: "#1a1a1a",
+    previewStyle: "magazine",
+    premium: true,
+    prompt: "Transform this photo into a cinematic movie still. Wide 2.39:1 aspect ratio with black letterbox bars, film color grading (teal and orange), lens flare, cinematic lighting. Add subtle film grain. Movie poster quality.",
+  },
+
+  // ART
+  {
+    id: "oil-portrait",
+    name: "Oil Portrait",
+    category: "art",
+    previewBg: "#3a2a1a",
+    previewStyle: "circle",
+    aspectTall: true,
+    prompt: "Transform this photo into a classical oil painting portrait in the style of Renaissance masters. Rich warm colors, dramatic chiaroscuro lighting, visible brushstrokes, ornate gilded frame visible at edges. Museum-quality fine art.",
+  },
   {
     id: "watercolor",
-    name: "Акварель",
-    description: "Нежная акварельная картина",
+    name: "Watercolor",
     category: "art",
-    emoji: "💧",
-    prompt:
-      "Transform this photo into a beautiful watercolor painting. Soft flowing edges, translucent color washes, visible paper texture, gentle blending. Delicate and artistic, with some areas more detailed and others deliberately loose and flowing.",
+    previewBg: "#e8dcc8",
+    previewStyle: "torn",
+    prompt: "Transform this photo into a beautiful watercolor painting. Soft flowing edges, translucent color washes, visible watercolor paper texture, gentle blending. Some areas detailed, others loose and flowing. Artistic and delicate.",
   },
   {
-    id: "comic-book",
-    name: "Комикс",
-    description: "В стиле комикс-панели",
+    id: "anime",
+    name: "Anime",
     category: "art",
-    emoji: "💬",
-    prompt:
-      "Transform this photo into a dynamic comic book panel illustration. Bold ink outlines, dramatic shading with crosshatching, action lines, vibrant flat colors. Marvel/DC comic book style with high contrast and energy.",
+    previewBg: "#c4a0d4",
+    previewStyle: "polaroid",
+    prompt: "Transform this photo into high-quality anime style art. Keep features recognizable but render in beautiful anime style with vibrant colors, clean lines, expressive eyes. Studio Ghibli inspired aesthetic, warm lighting.",
   },
   {
-    id: "vaporwave",
-    name: "Вейпорвейв",
-    description: "Ретро-эстетика 80-х",
+    id: "comic-panel",
+    name: "Comic Book",
     category: "art",
-    emoji: "🌅",
-    prompt:
-      "Transform this photo into vaporwave/retrowave aesthetic art. Neon grid landscape, sunset gradient (pink to purple to blue), Roman statue style, glitch effects, VHS scanlines. 80s/90s nostalgia, lo-fi dreamy atmosphere.",
-  },
-  {
-    id: "gta-style",
-    name: "GTA стиль",
-    description: "Как загрузочный экран GTA",
-    category: "art",
-    emoji: "🔫",
-    prompt:
-      "Transform this photo into GTA (Grand Theft Auto) loading screen art style. Bold graphic illustration with strong outlines, limited color palette, dramatic poses. Stephen Bliss illustration style. Gritty urban aesthetic.",
+    previewBg: "#d4c43c",
+    previewStyle: "tape",
+    premium: true,
+    prompt: "Transform this photo into a dynamic comic book panel. Bold ink outlines, dramatic shading with crosshatching, halftone dots, action lines. Vibrant flat colors, speech bubble with '...' text. Marvel comic book energy.",
   },
 
-  // Мемы
+  // POP
   {
-    id: "chad-meme",
-    name: "Gigachad",
-    description: "Превращает в гигачада",
-    category: "meme",
-    emoji: "💪",
-    prompt:
-      "Transform this person into a humorous 'Gigachad' meme style. Extremely chiseled jawline, perfect physique implied, dramatic black and white photography with high contrast. Heroic lighting, ultra-masculine exaggeration. Funny but flattering.",
-  },
-  {
-    id: "renaissance-meme",
-    name: "Случайный ренессанс",
-    description: "Accidental Renaissance мем",
-    category: "meme",
-    emoji: "🏛️",
-    prompt:
-      "Recreate this photo as an 'Accidental Renaissance' style scene. Dramatic Baroque/Renaissance painting lighting, rich oil painting textures, dramatic composition. As if Caravaggio or Rembrandt painted this candid moment. Dark, moody, theatrical.",
-  },
-  {
-    id: "action-figure",
-    name: "Фигурка",
-    description: "Как коллекционная фигурка в коробке",
-    category: "meme",
-    emoji: "📦",
-    prompt:
-      "Create an image of this person as a collectible action figure in a toy packaging box. Clear plastic front, cardboard backing with graphics, accessories shown. Include a funny product name. Toy photography style, studio lighting.",
-  },
-
-  // Фотоэффекты
-  {
-    id: "tilt-shift",
-    name: "Миниатюра",
-    description: "Эффект миниатюрного мира",
-    category: "photo",
-    emoji: "🔍",
-    prompt:
-      "Apply a tilt-shift miniature effect to this photo. Make the scene look like a tiny model/diorama. Extreme shallow depth of field at top and bottom, saturated colors, enhanced contrast. Everything looks like a miniature toy world.",
-  },
-  {
-    id: "double-exposure",
-    name: "Двойная экспозиция",
-    description: "Фото + природный пейзаж",
-    category: "photo",
-    emoji: "🌿",
-    prompt:
-      "Create a stunning double exposure effect combining this person's portrait with a beautiful nature landscape (forest, mountains, ocean). The landscape should blend artistically within the person's silhouette. Dreamy, ethereal mood.",
+    id: "pop-art",
+    name: "Pop Art",
+    category: "pop",
+    previewBg: "#e83030",
+    previewStyle: "grid-text",
+    previewAccent: "#ffd700",
+    prompt: "Transform this into Andy Warhol style pop art. Bold flat colors, high contrast, repeated in a 2x2 grid with different color schemes (like the Marilyn Monroe prints). Screen print aesthetic, vibrant and graphic.",
   },
   {
     id: "neon-glow",
-    name: "Неоновое свечение",
-    description: "Неоновые контуры и свечение",
-    category: "photo",
-    emoji: "💡",
-    prompt:
-      "Add dramatic neon glow effects to this photo. Neon light outlines around the subject in vibrant pink, blue, and purple. Dark background, light trails, bokeh effects. Club/party photography aesthetic, high energy.",
+    name: "Neon",
+    category: "pop",
+    previewBg: "#0a0a2a",
+    previewStyle: "circle",
+    previewAccent: "#ff00ff",
+    aspectTall: true,
+    prompt: "Add dramatic neon glow effects to this photo. Neon light outlines around the subject in vivid pink and cyan. Dark background, light trails, bokeh effects. Cyberpunk night club aesthetic.",
+  },
+  {
+    id: "glitch",
+    name: "Glitch",
+    category: "pop",
+    previewBg: "#1a1a1a",
+    previewStyle: "tape",
+    prompt: "Apply heavy glitch art effects to this photo. RGB channel splitting, pixel sorting, data corruption artifacts, scan lines, digital distortion. Vaporwave/glitch aesthetic, colorful errors on dark background.",
+  },
+  {
+    id: "sticker-pack",
+    name: "Sticker",
+    category: "pop",
+    previewBg: "#f5f0e8",
+    previewStyle: "collage",
+    prompt: "Transform this person into a cute die-cut sticker design. White outline border, slightly chibi/cartoon proportions, vibrant flat colors, kawaii expression. Clean vector-like style on a clean background. Sticker pack ready.",
   },
 
-  // Мода
+  // MINIMAL
   {
-    id: "magazine-cover",
-    name: "Обложка журнала",
-    description: "Как обложка Vogue",
-    category: "fashion",
-    emoji: "📰",
-    prompt:
-      "Transform this photo into a high-fashion magazine cover in the style of Vogue or Harper's Bazaar. Professional retouching, dramatic lighting, fashion-forward styling. Add elegant typography overlay suggesting a luxury fashion magazine.",
+    id: "line-art",
+    name: "Line Art",
+    category: "minimal",
+    previewBg: "#f5f0e8",
+    previewStyle: "circle",
+    prompt: "Convert this photo into elegant continuous line art drawing. Single black line on white/cream background, minimal and artistic. Focus on capturing the essence with as few lines as possible. Gallery-worthy minimalist art.",
   },
   {
-    id: "streetwear",
-    name: "Стритвир лук",
-    description: "Модный уличный стиль",
-    category: "fashion",
-    emoji: "🧢",
-    prompt:
-      "Reimagine this person in a trendy streetwear look. Supreme, Off-White, Nike inspired styling. Urban backdrop, confident pose, professional fashion photography lighting. Hypebeast aesthetic, editorial quality.",
+    id: "duotone",
+    name: "Duotone",
+    category: "minimal",
+    previewBg: "#1a3a5a",
+    previewStyle: "magazine",
+    aspectTall: true,
+    prompt: "Apply a striking duotone effect to this photo. Two colors only: deep navy blue for shadows and warm gold/cream for highlights. High contrast, graphic design poster aesthetic. Bold and modern.",
   },
   {
-    id: "vintage-fashion",
-    name: "Ретро мода",
-    description: "Стиль 60-х / 70-х",
-    category: "fashion",
-    emoji: "🕶️",
-    prompt:
-      "Transform this photo into a vintage 1960s/1970s fashion editorial. Film grain, warm faded tones, retro clothing and styling. Think Twiggy or Studio 54 era. Bell-bottoms, round sunglasses, groovy aesthetic. Nostalgic and stylish.",
+    id: "silhouette",
+    name: "Silhouette",
+    category: "minimal",
+    previewBg: "#f0a060",
+    previewStyle: "polaroid",
+    prompt: "Convert this photo into a dramatic silhouette against a warm sunset gradient background (orange to purple to dark blue). The person as a clean black silhouette, beautiful sky colors behind. Peaceful and cinematic.",
+  },
+
+  // MEMES
+  {
+    id: "action-figure",
+    name: "Action Figure",
+    category: "meme",
+    previewBg: "#2a4a8a",
+    previewStyle: "polaroid",
+    aspectTall: true,
+    prompt: "Create this person as a collectible action figure in retail packaging. Clear plastic front, cardboard backing with graphics and barcode. Include funny accessories and a product name. Professional toy photography, studio lighting.",
+  },
+  {
+    id: "wanted",
+    name: "Wanted",
+    category: "meme",
+    previewBg: "#d4a870",
+    previewStyle: "torn",
+    prompt: "Create an Old West 'WANTED' poster featuring this person. Aged yellowed paper, torn edges, 'WANTED DEAD OR ALIVE' text, reward amount '$10,000', sepia-toned photo, western typography. Authentic Wild West poster.",
+  },
+  {
+    id: "trading-card",
+    name: "Trading Card",
+    category: "meme",
+    previewBg: "#d4a843",
+    previewStyle: "magazine",
+    premium: true,
+    prompt: "Transform this person into a holographic trading card (Pokemon/Yu-Gi-Oh style). Holographic rainbow shimmer effect on the card, character stats at the bottom, card name at top, decorative border. Collectible card game aesthetic.",
+  },
+  {
+    id: "renaissance",
+    name: "Renaissance",
+    category: "meme",
+    previewBg: "#3a2a1a",
+    previewStyle: "heart",
+    previewAccent: "#d4a843",
+    prompt: "Recreate this photo as a dramatic 'Accidental Renaissance' painting. Baroque lighting, rich oil painting textures, dramatic composition. As if Caravaggio painted this candid moment. Dark, moody, theatrical masterpiece.",
   },
 ];
 

@@ -1,13 +1,17 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap');
 
 :root {
-  --tg-theme-bg-color: #ffffff;
-  --tg-theme-text-color: #000000;
-  --tg-theme-hint-color: #999999;
-  --tg-theme-link-color: #2678b6;
-  --tg-theme-button-color: #50a8eb;
-  --tg-theme-button-text-color: #ffffff;
-  --tg-theme-secondary-bg-color: #f0f0f0;
+  --tg-theme-bg-color: #f0e6d6;
+  --tg-theme-text-color: #1a1a1a;
+  --tg-theme-hint-color: #8a7e72;
+  --tg-theme-link-color: #c4453c;
+  --tg-theme-button-color: #1a1a1a;
+  --tg-theme-button-text-color: #f0e6d6;
+  --tg-theme-secondary-bg-color: #e8dcc8;
+  --accent: #d4a843;
+  --card-bg: #e8dcc8;
+  --premium: #c4453c;
 }
 
 @theme inline {
@@ -18,6 +22,10 @@
   --color-tg-button: var(--tg-theme-button-color);
   --color-tg-button-text: var(--tg-theme-button-text-color);
   --color-tg-secondary: var(--tg-theme-secondary-bg-color);
+  --color-accent: var(--accent);
+  --color-card: var(--card-bg);
+  --color-premium: var(--premium);
+  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
 * {
@@ -36,4 +44,18 @@ body {
 input, textarea {
   user-select: auto;
   -webkit-user-select: auto;
+}
+
+/* Hide scrollbar for category pills */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Masonry layout */
+.masonry {
+  columns: 2;
+  column-gap: 12px;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
 }
