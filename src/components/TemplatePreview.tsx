@@ -21,6 +21,7 @@ export function TemplatePreview({ template }: { template: Template }) {
         {previewStyle === "circle" && <CirclePreview accent={previewAccent} />}
         {previewStyle === "torn" && <TornPreview />}
         {previewStyle === "collage" && <CollagePreview />}
+        {previewStyle === "booth" && <BoothPreview accent={previewAccent} />}
       </div>
 
       {premium && (
@@ -167,6 +168,34 @@ function CollagePreview() {
       <div className="aspect-square bg-white/10 rounded" />
       <div className="aspect-[3/4] bg-white/10 rounded row-span-2" />
       <div className="aspect-square bg-white/10 rounded" />
+    </div>
+  );
+}
+
+function BoothPreview({ accent }: { accent?: string }) {
+  const dotColor = accent || "#1a1a1a";
+  return (
+    <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
+      {/* Pattern background */}
+      <div className="absolute inset-0 opacity-20">
+        {Array.from({ length: 8 }).map((_, row) => (
+          <div key={row} className="flex justify-around py-1">
+            {Array.from({ length: 6 }).map((_, col) => (
+              <div
+                key={col}
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ background: dotColor }}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+      {/* Photo strip */}
+      <div className="relative z-10 w-[55%] flex flex-col gap-1.5 p-1.5 bg-white/20 rounded border border-white/30">
+        <div className="w-full aspect-[4/3] bg-white/15 rounded-sm" />
+        <div className="w-full aspect-[4/3] bg-white/15 rounded-sm" />
+        <div className="w-full aspect-[4/3] bg-white/15 rounded-sm" />
+      </div>
     </div>
   );
 }

@@ -4,9 +4,10 @@ export interface Template {
   category: string;
   prompt: string;
   premium?: boolean;
+  photoCount?: number; // default 1, photo booth = 3
   // Visual preview config
   previewBg: string;
-  previewStyle: "heart" | "polaroid" | "stamp" | "tape" | "grid-text" | "film" | "magazine" | "circle" | "torn" | "collage";
+  previewStyle: "heart" | "polaroid" | "stamp" | "tape" | "grid-text" | "film" | "magazine" | "circle" | "torn" | "collage" | "booth";
   previewAccent?: string;
   aspectTall?: boolean;
 }
@@ -23,7 +24,47 @@ export const categories = [
 ];
 
 export const templates: Template[] = [
-  // TRENDING
+  // TRENDING — photo booth first
+  {
+    id: "booth-polka",
+    name: "Фотобудка Polka",
+    category: "trending",
+    previewBg: "#f5f0e8",
+    previewStyle: "booth",
+    previewAccent: "#1a1a1a",
+    aspectTall: true,
+    photoCount: 3,
+    prompt: `I'm giving you a vertical strip of 3 photos stacked on top of each other. Create a vintage photo booth result:
+
+1. Keep ALL THREE photos clearly visible, stacked vertically in a column, evenly spaced. Each photo must remain EXACTLY as provided — same people, same poses, same composition. Do NOT alter, redraw, or reimagine the photos in any way.
+2. Convert all three photos to BLACK AND WHITE with slight sepia/warm tone, like a real photo booth.
+3. Add a white lace/doily decorative rectangular border around the entire photo strip.
+4. Place the framed strip on a background of WHITE fabric/paper with BLACK POLKA DOTS pattern (small regular dots).
+5. The final image should be tall portrait orientation (like a real photo booth strip).
+6. The overall aesthetic should look like a scrapbook page — tactile, handmade, vintage, romantic.
+
+CRITICAL: The three photos must look IDENTICAL to the originals. Only change the color to B&W sepia. Do not redraw faces or change expressions.`,
+  },
+  {
+    id: "booth-stripes",
+    name: "Фотобудка Stripes",
+    category: "trending",
+    previewBg: "#f5e8e8",
+    previewStyle: "booth",
+    previewAccent: "#c44040",
+    aspectTall: true,
+    photoCount: 3,
+    prompt: `I'm giving you a vertical strip of 3 photos stacked on top of each other. Create a vintage photo booth result:
+
+1. Keep ALL THREE photos clearly visible, stacked vertically in a column, evenly spaced. Each photo must remain EXACTLY as provided — same people, same poses, same composition. Do NOT alter, redraw, or reimagine the photos in any way.
+2. Convert all three photos to BLACK AND WHITE with slight warm sepia tone, like a real photo booth.
+3. Give each photo slightly rounded corners.
+4. Place the photo strip on a background of RED AND WHITE VERTICAL STRIPES pattern (classic candy stripe / circus stripe fabric texture).
+5. The final image should be tall portrait orientation (like a real photo booth strip).
+6. The overall aesthetic should look like a vintage carnival photo booth — nostalgic, fun, romantic.
+
+CRITICAL: The three photos must look IDENTICAL to the originals. Only change the color to B&W sepia. Do not redraw faces or change expressions.`,
+  },
   {
     id: "heart-lace",
     name: "Кружевное сердце",

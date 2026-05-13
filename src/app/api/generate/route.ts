@@ -5,6 +5,8 @@ const EVOLINK_API_URL =
   process.env.EVOLINK_API_URL || "https://api.evolink.ru/v1";
 const EVOLINK_API_KEY = process.env.EVOLINK_API_KEY || "";
 
+export const maxDuration = 120; // Railway has no limit, but good practice
+
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
@@ -29,6 +31,10 @@ export async function POST(req: NextRequest) {
     const mimeType = image.type || "image/jpeg";
     const dataUrl = `data:${mimeType};base64,${base64}`;
 
+    // Photo booth templates use tall portrait size
+    const isBooth = (template.photoCount || 1) > 1;
+    const size = isBooth ? "1024x1536" : "1024x1024";
+
     // Call GPT Image 2 via Evolink
     const response = await fetch(`${EVOLINK_API_URL}/images/generations`, {
       method: "POST",
@@ -41,7 +47,7 @@ export async function POST(req: NextRequest) {
         prompt: template.prompt,
         image: dataUrl,
         n: 1,
-        size: "1024x1024",
+        size,
         quality: "high",
       }),
     });
@@ -50,7 +56,7 @@ export async function POST(req: NextRequest) {
       const errBody = await response.text();
       console.error("Evolink error:", response.status, errBody);
       return NextResponse.json(
-        { error: "Image generation failed" },
+        { error: "Ошибка генерации изображения" },
         { status: 502 }
       );
     }
@@ -67,7 +73,7 @@ export async function POST(req: NextRequest) {
     } else {
       console.error("Unexpected response:", JSON.stringify(data));
       return NextResponse.json(
-        { error: "Unexpected API response" },
+        { error: "Неожиданный ответ API" },
         { status: 502 }
       );
     }
@@ -76,7 +82,7 @@ export async function POST(req: NextRequest) {
   } catch (err: any) {
     console.error("Generate error:", err);
     return NextResponse.json(
-      { error: err.message || "Internal error" },
+      { error: err.message || "Внутренняя ошибка" },
       { status: 500 }
     );
   }
